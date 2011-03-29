@@ -33,6 +33,11 @@ data_table.delete_if() do |row|
   row[:iteration] != the_sprint
 end
 
+if data_table.length == 0 then
+  puts "No stories available for sprint #{the_sprint}"
+  exit
+end
+
 # Get the date range of the sprint (from the first story, though could get it from any of them)
 iteration_start = Date.parse(data_table[0][:iteration_start])
 iteration_end = Date.parse(data_table[0][:iteration_end])
