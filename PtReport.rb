@@ -20,6 +20,10 @@ the_sprint = ARGV[1] || 47
 #   end
 # end
 # 
+
+# Make sure we're dealing with an integer (if read from the command line it'll be a string)
+the_sprint = the_sprint.to_i
+
 puts "Sprint data from #{the_CSV_file} for sprint #{the_sprint}"
 
 data_table = FasterCSV.read(the_CSV_file, :headers => true, :header_converters => :symbol, :converters => :numeric)
